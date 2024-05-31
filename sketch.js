@@ -2,7 +2,7 @@
   // We first define the original artwork dimensions for use in resizing the code later
     let originalWidth = 2480, originalHeight = 1758;
 
-  //Time-based animation
+  //Time-based animation - Zhuoya's individual part
     let startTime;
 
   // We then setup a responsive canvas
@@ -169,9 +169,7 @@
 // 4. DRAWING AND COLORING SHAPES
 function draw() {
   background('#FFFFFF');
-  drawSky();
-  //add animation function
-  animateShapes(); 
+  animateShapes(); // new animated sky included all sky segments - Zhuoya's individual part
   drawRiver(); 
   drawReflection();
   drawBuilding();
@@ -179,7 +177,7 @@ function draw() {
   
 }
 
-// Animation funciton
+// Instead original drawSky() with Animation funciton of all sky segments - Zhuoya's individual part
 function animateShapes() {
   let elapsedTime = millis() - startTime;
   let angle = map(sin(elapsedTime * 0.0005), -1, 1, -PI / 15, PI / 15); // Oscillate between -PI/8 and PI/8
@@ -188,22 +186,6 @@ function animateShapes() {
     fillShapeWithDiagonalLines(shape.points, angle, width / originalWidth, height / originalHeight);
   });
 }
-
-  // We first draw the sky. This requires it's own scaling and coloring methods due to the complexity of the diagonal lines
-    function drawSky() {
-      let scaleX = width / originalWidth;
-      let scaleY = height / originalHeight;
-
-      skyAngles.forEach(shape => {
-        noStroke();
-        beginShape();
-        for (let pt of shape.points) {
-          vertex(pt.x * scaleX, pt.y * scaleY);
-        }
-        endShape(CLOSE);
-        
-      });
-    }
 
   // We then draw the river, buildings, and building reflection, applying scaling 
   // and using lerpColor + array indexing to implement a gradual color gradient based on the line's position on the canvas
@@ -215,7 +197,7 @@ function animateShapes() {
       let step = 4;
 
       let elapsedTime = millis() - startTime;
-      let wave = map(sin(elapsedTime * 0.001), -1, 1, -5, 4); // Oscillate the river height
+      let wave = map(sin(elapsedTime * 0.001), -1, 1, -5, 4); // Oscillate the river height - Zhuoya's individual part
 
       for (let y = minY; y <= maxY; y += step) {
         let inter = map(y, minY, maxY, 0, 1);
@@ -239,7 +221,7 @@ function animateShapes() {
         let step = 4;
 
         let elapsedTime = millis() - startTime;
-        let wave = map(sin(elapsedTime * 0.001), -1, 1, -10, 10); // Oscillate the river height
+        let wave = map(sin(elapsedTime * 0.001), -1, 1, -10, 10); // Oscillate the reflection height - - Zhuoya's individual part
 
         for (let y = minY; y <= maxY; y += step) {
           let inter = map(y, minY, maxY, 0, 1);
@@ -252,7 +234,7 @@ function animateShapes() {
           fillShapeWithHorizontalLines(scaledReflectionPoints, reflectionStrokeColor, y + wave);
         }
       }
-    }v
+    }
 
 
     function drawBuilding() {
@@ -283,7 +265,7 @@ function animateShapes() {
       let step = 3;
 
       let elapsedTime = millis() - startTime;
-      let sway = map(sin(elapsedTime * 0.001), -1, 1, -10, 10); // Oscillate the building position    
+      let sway = map(sin(elapsedTime * 0.001), -1, 1, -10, 10); // Oscillate the building position - Zhuoya's individual part 
       
       for (let x = minX; x <= maxX; x += step) {
         let inter = map(x, minX, maxX, 0, 1);
