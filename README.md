@@ -1,9 +1,9 @@
-# zgui6644_major-project_Time-Based Animation
+# zgui6644_Major Project_Time-Based Animation
 
 ## Animation Instructions
 1. **Load the page**
 Open the 'index.html' file in your web browser.
-2. **Animation  (order)**
+2. **Animation**
 When the page loads, the animation will start automatically. Watch it, and enjoy it.
 
 ## Individual Approach to Animating the Group Code
